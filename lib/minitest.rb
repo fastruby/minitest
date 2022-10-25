@@ -1049,6 +1049,7 @@ module Minitest
 
   def self.run_one_method klass, method_name # :nodoc:
     result = klass.new(method_name).run
+    puts "DEBUG: #{method_name} had #{result.assertions} assertions" if result.assertions < 1
     raise "#{klass}#run _must_ return a Result" unless Result === result
     result
   end
